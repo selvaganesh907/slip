@@ -44,10 +44,7 @@
         .full-width { grid-column: span 2; }
         .update-btn { padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; grid-column: span 2; transition: background 0.3s; }
         .update-btn:hover { background-color: #0056b3; }
-        
-      
-
-/* Hero Layout */
+        /* Hero Layout */
 .payslip-hero {
   display: flex;
   align-items: center;
@@ -135,14 +132,6 @@
   transform: scale(1.02);
   box-shadow: 0 15px 35px rgba(91, 33, 182, 0.2);
 }
-
-
-
-
-
-
-
-
 /* Top Heading Section */
         .header-container {
             text-align: center;
@@ -221,15 +210,7 @@
             font-size: 1rem;
             line-height: 1.5;
         }
-
-
-
-
-
-
-
-      
-        /* Container styling */
+ /* Container styling */
 .steps-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -308,13 +289,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
-
-
-
-
-
 /* Main Heading */
 .main-heading{
     text-align: center;
@@ -429,18 +403,6 @@
     color:white;
     border-color: #ff4d6d;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 .dashboard-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -610,34 +572,6 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Page Navigation */
 .page {
     display: none;
@@ -786,24 +720,6 @@ button {
         background: transparent;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .payslip-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -1055,28 +971,6 @@ button {
     .modal-header { display: none; }
     .invoice-box { box-shadow: none; padding: 0; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .help-section {
     max-width: 1100px;
     margin: 0 auto;
@@ -1170,16 +1064,6 @@ button {
 .email-link:hover, .phone-link:hover, .chat-link:hover {
     text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
 /* Black color-box container model */
         .faq-container {
             background-color:white;
@@ -1263,17 +1147,6 @@ button {
         .faq-answer.show {
             display: block;
         }
-
-
-
-
-
-
-
-
-
-
-   
 /* General Footer Styling */
 .footer {
     background-color: #ffffff; /* Background-whitecolor */
@@ -1348,17 +1221,6 @@ button {
     padding-top: 20px;
     border-top: 1px solid #eee;
 }
-
-
-
-
-
-
-
-
-
-
-
 /* Responsive adjustment for screens smaller than 768px */
 @media (max-width: 768px) {
   .payslip-hero {
@@ -1369,8 +1231,6 @@ button {
   .hero-links { justify-content: center; }
   .hero-image-container { justify-content: center; }
 }
-
-
 /* Responsive adjustments */
         @media (max-width: 1024px) {
             .card {

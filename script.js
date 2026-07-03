@@ -13,19 +13,7 @@
             showSection('profile'); 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-        document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generateBtn');
     const nextPageContent = document.getElementById('nextPageContent');
 
@@ -41,34 +29,7 @@
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // State Variables for Payslip
+// State Variables for Payslip
 let payslipData = {};
 
 // Navigation Event Handlers
@@ -173,18 +134,6 @@ document.getElementById('btn-share').addEventListener('click', function() {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements Mapping
     const searchBar = document.getElementById("searchBar");
@@ -258,26 +207,7 @@ function closePDF() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  function toggleAnswer(button) {
+function toggleAnswer(button) {
             // Find the answer block adjacent to this question row
             const answerBlock = button.parentElement.nextElementSibling;
             
