@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayGen - Payroll Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">
+                <img src="logo.jpg" alt="">
+                <div class="loco-icon"></div> PayGen
+            </div>
+            <ul class="nav-links">
+                <a  href="index.html">Home</a>
+                <a  href="dashboard.html">Dashboard</a>
+                <a  href="generatepayslip.html">Generate PaySlip</a>
+                <a  href="paysliphistory.html">PaySlip History</a>
+                <a  href="help.html">Help</a>
+            </ul>
+        </div>
+        <div class="user-section">
+            <div class="profile-icon-nav" onclick="showSection('profile')">PS</div>
+            <button class="login-btn" onclick="showSection('login')">Login</button>
+           
+        </div>
+    </nav>
+
+    
+
+    
+             
+ <!-- Login Page -->
+    <section id="login" class="container section hidden">
+        <div class="box-model">
+            <h2 class="login-title">Employee Sign In</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label>Employee Login / Email</label>
+                    <input type="email" placeholder="Enter email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter password" required>
+                </div>
+                <div class="input-group">
+                    <label>Company Name</label>
+                    <input type="text" placeholder="Enter Company Name" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Profile Page -->
+    <section id="profile" class="container section hidden">
+        <div class="profile-wrapper">
+            <!-- Profile Top Box -->
+            <div class="profile-header">
+                <div class="profile-circle">PS</div>
+                <div class="profile-header-info">
+                    <h2>P.Selvaganesh</h2>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+            <!-- Profile Details Form -->
+            <form class="profile-form" onsubmit="event.preventDefault(); alert('Profile Updated Successfully!');">
+                <div class="form-group">
+                    <label>Employee Name</label>
+                    <input type="text" value="P.SelvaGanesh" required>
+                </div>
+                <div class="form-group">
+                    <label>Employee ID</label>
+                    <input type="text" value="EMP-84920" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" value="Developer" required>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" value="VTS" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" value="+91 98765 43210" required>
+                </div>
+                <div class="form-group">
+                    <label>Email-ID</label>
+                    <input type="email" value="pselvag1@paygen.com" required>
+                </div>
+                <button type="submit" class="update-btn">Update Profile</button>
+            </form>
+        </div>
+    </section>
+    
+
+
+
+<section class="help-section">
+        <!-- Top Left Section -->
+        <div class="help-header">
+            <h2>Help & Support</h2>
+            <p>Find answers to common questions and get support</p>
+        </div>
+
+        <!-- 3-Card Box Model Layout -->
+        <div class="cards-container">
+            
+            <!-- Card 1: Email Support -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="mail.jpg" alt="Email Support">
+                </div>
+                <div class="card-content">
+                    <h3>Email support</h3>
+                    <p>Get help via email</p>
+                    <a href="mailto:support@example.com" class="email-link">support@example.com</a>
+                </div>
+            </div>
+
+            <!-- Card 2: Phone Support -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="phone.jpg" alt="Phone Support">
+                </div>
+                <div class="card-content">
+                    <h3>Phone support</h3>
+                    <p>Get help via Phone</p>
+                    <a href="tel:+18005550199" class="phone-link">1-800-555-0199</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Chat Support -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="chat.jpg" alt="Chat Support">
+                </div>
+                <div class="card-content">
+                    <h3>Chat support</h3>
+                    <p>Get help via chat</p>
+                    <a href="#" class="chat-link">Started chat</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+     
+  
+
+
+
+ <!-- Black Container Box Model -->
+    <div class="faq-container">
+        
+        <!-- Header Section -->
+        <div class="faq-header">
+            <!-- Left mini blue box -->
+            <div class="mini-blue-box"></div>
+            <!-- Frequently Asked Questions Black Text -->
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+        </div>
+
+        <!-- FAQ Item Block -->
+        <div class="faq-item">
+            <div class="faq-question-row">
+                <!-- Down in next-line Question text -->
+                <span class="question-text">How do I generate my payslip?</span>
+                <!-- Right side down-arrow button -->
+                <button class="arrow-btn" onclick="toggleAnswer(this)">▼</button>
+            </div>
+            <!-- Answer container shown directly below on click -->
+            <div class="faq-answer">
+                Go to the Payroll tab in your dashboard, select the current month, and click the "Generate Payslip" button to download your document.
+            </div>
+        </div>
+
+        <!-- Additional FAQ Item Block for testing -->
+        <div class="faq-item">
+            <div class="faq-question-row">
+                <span class="question-text">Where are my past payslips saved?</span>
+                <button class="arrow-btn" onclick="toggleAnswer(this)">▼</button>
+            </div>
+            <div class="faq-answer">
+                All generated files are safely stored under the "History" section inside your profile portal.
+            </div>
+        </div>
+
+
+
+        <!-- FAQ Item Block -->
+        <div class="faq-item">
+            <div class="faq-question-row">
+                <!-- Down in next-line Question text -->
+                <span class="question-text">How do I generate my payslip?</span>
+                <!-- Right side down-arrow button -->
+                <button class="arrow-btn" onclick="toggleAnswer(this)">▼</button>
+            </div>
+            <!-- Answer container shown directly below on click -->
+            <div class="faq-answer">
+                Go to the Payroll tab in your dashboard, select the current month, and click the "Generate Payslip" button to download your document.
+            </div>
+        </div>
+
+        <!-- Additional FAQ Item Block for testing -->
+        <div class="faq-item">
+            <div class="faq-question-row">
+                <span class="question-text">Where are my past payslips saved?</span>
+                <button class="arrow-btn" onclick="toggleAnswer(this)">▼</button>
+            </div>
+            <div class="faq-answer">
+                All generated files are safely stored under the "History" section inside your profile portal.
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Col 1: Logo & Links -->
+            <div class="footer-col">
+                <img src="logo.jpg" alt="Logo" class="mini-logo">
+                <div class="PayGen">PayGen</div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Generate Payslip</a></li>
+                    <li><a href="#">Payslip History</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 2: Legacy Support -->
+            <div class="footer-col">
+                <h4>Legacy_support</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Apps & Info -->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="#">Android APP</a></li>
+                    <li><a href="#">IOS App</a></li>
+                    <li><a href="#">ChangeLog</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Email -->
+            <div class="footer-col">
+                <h4>Email</h4>
+                <p>PaySlip@gmail.com</p>
+            </div>
+
+            <!-- Col 5: Address -->
+            <div class="footer-col">
+                <h4>Address</h4>
+                <p>123 Business St,<br>City, Country</p>
+            </div>
+        </div>
+
+        <!-- Social Media Section (Center) -->
+        <div class="footer-social">
+            <div class="social">social</div>
+            <a href="#"><img src="Facebook.png" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="whatsapp3.png" alt="Whatsapp" class="social-icon"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+            <a href="#"><img src="youtube2.png" alt="Youtube" class="social-icon"></a>
+        </div>
+    </footer>
+
+
+
+
+ 
+
+        <script src="script.js"></script>
+
+    </body>
+    </html>

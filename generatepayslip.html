@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayGen - Payroll Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">
+
+
+                <img src="logo.jpg" alt="">
+                <div class="loco-icon"></div> PayGen
+            </div>
+            <ul class="nav-links">
+                <a  href="index.html">Home</a>
+                <a  href="dashboard.html">Dashboard</a>
+                <a  href="generatepayslip.html">Generate PaySlip</a>
+                <a  href="paysliphistory.html">PaySlipHistory</a>
+                <a  href="help.html">Help</a>
+            </ul>
+        </div>
+        <div class="user-section">
+            <div class="profile-icon-nav" onclick="showSection('profile')">PS</div>
+            <button class="login-btn" onclick="showSection('login')">Login</button>
+          
+        </div>
+    </nav>
+
+
+
+
+     <!-- Login Page -->
+    <section id="login" class="container section hidden">
+        <div class="box-model">
+            <h2 class="login-title">Employee Sign In</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label>Employee Login / Email</label>
+                    <input type="email" placeholder="Enter email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter password" required>
+                </div>
+                <div class="input-group">
+                    <label>Company Name</label>
+                    <input type="text" placeholder="Enter Company Name" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Profile Page -->
+    <section id="profile" class="container section hidden">
+        <div class="profile-wrapper">
+            <!-- Profile Top Box -->
+            <div class="profile-header">
+                <div class="profile-circle">PS</div>
+                <div class="profile-header-info">
+                    <h2>P.Selvaganesh</h2>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+            <!-- Profile Details Form -->
+            <form class="profile-form" onsubmit="event.preventDefault(); alert('Profile Updated Successfully!');">
+                <div class="form-group">
+                    <label>Employee Name</label>
+                    <input type="text" value="P.SelvaGanesh" required>
+                </div>
+                <div class="form-group">
+                    <label>Employee ID</label>
+                    <input type="text" value="EMP-84920" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" value=" Developer" required>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" value="VTS" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" value="+91 98765 43210" required>
+                </div>
+                <div class="form-group">
+                    <label>Email-ID</label>
+                    <input type="email" value="pselvag1@paygen.com" required>
+                </div>
+                <button type="submit" class="update-btn">Update Profile</button>
+            </form>
+        </div>
+    </section>
+    
+
+
+    
+
+
+
+     <!-- Page 1: Generation Dashboard -->
+    <div id="generation-page" class="page active">
+        <h2 style="text-align: center; margin-bottom: 20px;">Payslip Generation Panel</h2>
+
+        <form id="payslip-form">
+            <!-- 1. Employee Details -->
+            <div class="box-model">
+                <div class="box-header">Employee Details</div>
+                <div class="form-group">
+                    <label>Employee Name</label>
+                    <input type="text" id="emp-name" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Employee ID</label>
+                    <input type="text" id="emp-id" placeholder="Enter ID" required>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" id="emp-designation" placeholder="Enter Designation" required>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" id="emp-department" placeholder="Enter Department" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Month</label>
+                        <select id="emp-month" required>
+                            <option value="">Select Month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="number" id="emp-year" placeholder="YYYY" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Earnings -->
+            <div class="box-model">
+                <div class="box-header">Earnings</div>
+                <div class="form-group">
+                    <label>Basic Pay (₹)</label>
+                    <input type="number" id="basic-pay" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label>HRA (₹)</label>
+                    <input type="number" id="hra" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Allowance (₹)</label>
+                    <input type="number" id="allowance" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Bonus (Optional) (₹)</label>
+                    <input type="number" id="bonus" placeholder="0">
+                </div>
+            </div>
+
+            <!-- 3. Deductions -->
+            <div class="box-model">
+                <div class="box-header">Deductions</div>
+                <div class="form-group">
+                    <label>Provident Fund (PF) (₹)</label>
+                    <input type="number" id="pf" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Professional Tax (₹)</label>
+                    <input type="number" id="pt" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Other Deductions (₹)</label>
+                    <input type="number" id="other-deduction" placeholder="0">
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-buttons">
+                <button type="submit" class="btn-primary" id="btn-generate">Generate Payslip</button>
+                <button type="button" class="btn-secondary" id="btn-reset">Reset</button>
+            </div>
+        </form>
+        
+        <div class="action-buttons" style="margin-top: 20px;">
+            <button type="button" class="btn-info" id="btn-preview-nav">Payslip Review / Preview</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Payslip Preview -->
+    <div id="preview-page" class="page">
+        <div id="alert-box" class="alert-hidden">Payslip downloaded successfully!</div>
+        
+        <h3 id="ready-status" style="text-align: center; color: #333;">Your Payslip is ready!</h3>
+
+        <div class="box-model full-width-layout" id="printable-area">
+            <!-- Header -->
+            <div class="box-header">EMPLOYEE PAYSLIP</div>
+            
+            <div class="payslip-section">
+                <h4>Employee Details</h4>
+                <p><strong>Name:</strong> <span id="span-name"></span></p>
+                <p><strong>Employee ID:</strong> <span id="span-id"></span></p>
+                <p><strong>Designation:</strong> <span id="span-designation"></span></p>
+                <p><strong>Department:</strong> <span id="span-department"></span></p>
+                <p><strong>Month & Year:</strong> <span id="span-month-year"></span></p>
+            </div>
+
+            <hr>
+
+            <div class="payslip-section">
+                <h4>Earnings</h4>
+                <p>Basic Pay: ₹<span id="span-basic"></span></p>
+                <p>HRA: ₹<span id="span-hra"></span></p>
+                <p>Allowance: ₹<span id="span-allowance"></span></p>
+                <p>Bonus: ₹<span id="span-bonus"></span></p>
+                <p><strong>Gross Earnings: ₹<span id="span-gross"></span></strong></p>
+            </div>
+
+            <hr>
+
+            <div class="payslip-section">
+                <h4>Deductions</h4>
+                <p>Provident Fund (PF): ₹<span id="span-pf"></span></p>
+                <p>Professional Tax: ₹<span id="span-pt"></span></p>
+                <p>Other Deductions: ₹<span id="span-other-deduction"></span></p>
+                <p><strong>Total Deductions: ₹<span id="span-total-deductions"></span></strong></p>
+            </div>
+
+            <hr>
+
+            <div class="payslip-section netpay-section">
+                <h4>Net Pay: <span id="span-netpay">₹0</span></h4>
+            </div>
+        </div>
+
+        <!-- Preview Page Controls -->
+        <div class="action-buttons" style="margin-top: 20px;">
+            <button class="btn-primary" id="btn-view">View Layout</button>
+            <button class="btn-success" id="btn-download">Download</button>
+            <button class="btn-info" id="btn-print">Print</button>
+            <button class="btn-secondary" id="btn-share">Share</button>
+        </div>
+
+        <div class="action-buttons" style="margin-top: 20px;">
+            <button class="btn-secondary" id="btn-back">Back to Generate</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Col 1: Logo & Links -->
+            <div class="footer-col">
+                <img src="logo.jpg" alt="Logo" class="mini-logo">
+                <div class="PayGen">PayGen</div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Generate Payslip</a></li>
+                    <li><a href="#">Payslip History</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 2: Legacy Support -->
+            <div class="footer-col">
+                <h4>Legacy_support</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Apps & Info -->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="#">Android APP</a></li>
+                    <li><a href="#">IOS App</a></li>
+                    <li><a href="#">ChangeLog</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Email -->
+            <div class="footer-col">
+                <h4>Email</h4>
+                <p>PaySlip@gmail.com</p>
+            </div>
+
+            <!-- Col 5: Address -->
+            <div class="footer-col">
+                <h4>Address</h4>
+                <p>123 Business St,<br>City, Country</p>
+            </div>
+        </div>
+
+        <!-- Social Media Section (Center) -->
+        <div class="footer-social">
+            <div class="social">social</div>
+            <a href="#"><img src="Facebook.png" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="whatsapp3.png" alt="Whatsapp" class="social-icon"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+            <a href="#"><img src="youtube2.png" alt="Youtube" class="social-icon"></a>
+        </div>
+    </footer>
+
+
+
+
+    <script src="script.js"></script>
+
+    </body>
+    </html>
+    
